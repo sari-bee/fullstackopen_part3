@@ -26,7 +26,9 @@ let persons = [
     }
 ]
 
-app.use(morgan('tiny'))
+morgan.token('content', function (request, response) { return JSON.stringify(request.body) })
+
+app.use(morgan(':method :url :status :res[content-length] - :response-time ms :content'))
 app.use(express.json())
 
 app.get('/info', (request, response) => {
@@ -55,7 +57,6 @@ app.delete('/api/persons/:id', (request, response) => {
 
 app.post('/api/persons', (request, response) => {
     const person = request.body
-
     if (!person.name) {
         return response.status(400).json({
             error: 'name missing'
