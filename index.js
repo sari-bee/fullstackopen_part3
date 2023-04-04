@@ -56,12 +56,6 @@ app.post('/api/persons', (request, response) => {
         })
     }
 
-//    if (persons.map(p => p.name.toLowerCase()).includes(person.name.toLowerCase())) {
-//        return response.status(400).json({
-//            error: 'name must be unique'
-//        })
-//    }
-
     const personToSave = new Person({
         name: person.name,
         number: person.number
@@ -70,6 +64,20 @@ app.post('/api/persons', (request, response) => {
     personToSave.save().then(thisPerson => {
         response.json(thisPerson)
     })
+})
+
+app.put('/api/persons/:id', (request, response, next) => {
+    const person = request.body
+    const personToChange = {
+        name: person.name,
+        number: person.number
+    }
+
+    Person.findByIdAndUpdate(request.params.id, personToChange, {new:true})
+    .then(updatedPerson => {
+        response.json(updatedPerson)
+    })
+    .catch(error => next(error))
 })
 
 const unknownEndpoint = (request, response) => {
