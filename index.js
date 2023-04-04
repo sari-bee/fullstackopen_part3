@@ -25,13 +25,9 @@ app.get('/api/persons', (request, response) => {
 })
 
 app.get('/api/persons/:id', (request, response) => {
-    const id = Number(request.params.id)
-    const person = persons.find(person => person.id === id)
-    if (person) {
+    Person.findById(request.params.id).then(person => {
         response.json(person)
-    } else {
-        response.status(404).end()
-    }
+    })
 })
 
 app.delete('/api/persons/:id', (request, response) => {
@@ -53,15 +49,20 @@ app.post('/api/persons', (request, response) => {
         })
     }
 
-    if (persons.map(p => p.name.toLowerCase()).includes(person.name.toLowerCase())) {
-        return response.status(400).json({
-            error: 'name must be unique'
-        })
-    }
+//    if (persons.map(p => p.name.toLowerCase()).includes(person.name.toLowerCase())) {
+//        return response.status(400).json({
+//            error: 'name must be unique'
+//        })
+//    }
 
-    person.id = Math.floor(Math.random()*(999)+1)
-    persons = persons.concat(person)
-    response.json(person)
+    const personToSave = new Person({
+        name: person.name,
+        number: person.number
+    })
+
+    personToSave.save().then(thisPerson => {
+        response.json(thisPerson)
+    })
 })
 
 const PORT = process.env.PORT
