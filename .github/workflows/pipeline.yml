@@ -22,9 +22,7 @@ jobs:
       - name: Check style
         run: npm run lint
       - name: Build
-        run: npm run build:ui
-#      - name: Deploy
-#        run: npm run deploy
+        run: npm run build
 #
 #      - name: Deploy app
 #        if: ${{ github.event_name == 'push' && !contains(join(github.event.commits.*.message,','), '#skip') }}
