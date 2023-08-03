@@ -21,3 +21,21 @@ jobs:
         run: npm install
       - name: Check style
         run: npm run lint
+      - name: Build
+        run: npm run build:ui
+#      - name: Deploy
+#        run: npm run deploy
+#
+#      - name: Deploy app
+#        if: ${{ github.event_name == 'push' && !contains(join(github.event.commits.*.message,','), '#skip') }}
+#        run: flyctl deploy --remote-only
+#        id: deploy
+#        env:
+#          FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
+#
+#      - name: Bump version and push tag
+#        uses: anothrNick/github-tag-action@1.55.0
+#        if: ${{ github.event_name == 'push' && !contains(join(github.event.commits.*.message,','), '#skip') }}
+#        env:
+#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#          DEFAULT_BUMP: patch
