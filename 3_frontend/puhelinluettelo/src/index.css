@@ -1,0 +1,32 @@
+body {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.notification {
+    border-width: 2px;
+    border-style: dashed;
+    border-color: black;
+    font-size: 16px;
+    padding: 5px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.error {
+    border-width: 2px;
+    border-style: dashed;
+    border-color: black;
+    color: red;
+    font-size: 16px;
+    padding: 5px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+button {
+    color: black;
+    background-color: white;
+    font-family: 'Courier New', Courier, monospace;
+    border: 1px;
+    border-style: groove;
+}
