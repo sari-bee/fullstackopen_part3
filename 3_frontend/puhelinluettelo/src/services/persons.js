@@ -20,4 +20,5 @@ const changeNumber = (id, changedPerson) => {
     return request.then(response => response.data)
 }
 
+/* eslint-disable */
 export default { getAll, create, deleteOne, changeNumber }
