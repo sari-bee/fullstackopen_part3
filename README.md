@@ -1,6 +1,6 @@
 # Full Stack Open, osa/part 3
 
-Tässä repositoriossa ovat tehtäväpalautukseni Full Stack Open -kurssin osaan 3 (backend + tuotantoversio).
+Tässä repositoriossa ovat tehtäväpalautukseni Full Stack Open -kurssin osaan 3 (backend & tuotantoversio).
 This is the repository for exercises from part 3 (backend + production build) of the Full Stack Open course.
 
 #### Sovelluksen fly.io-osoite: [https://summer-dew-5128.fly.dev](https://summer-dew-5128.fly.dev)
