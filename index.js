@@ -41,6 +41,7 @@ app.delete('/api/persons/:id', (request, response, next) => {
       response.status(204).end()
     })
     .catch(error => next(error))
+    
 })
 
 app.post('/api/persons', (request, response, next) => {
