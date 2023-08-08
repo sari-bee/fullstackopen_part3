@@ -25,8 +25,7 @@ jobs:
         run: npm run build:ui
       - name: Deploy app
         if: ${{ github.event_name == 'push' }}
-        run: flyctl deploy --remote-only
-        id: deploy
+        run: fly deploy --remote-only
         env:
           FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
 #
